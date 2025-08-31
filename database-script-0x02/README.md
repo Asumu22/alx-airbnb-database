@@ -19,10 +19,3 @@ The `seed.sql` script inserts initial records into the database tables, simulati
 - **Review**: User reviews on properties
 - **Message**: Messages exchanged between users
 
-## Usage
-
-1. Ensure the database schema (`schema.sql`) is created.
-2. Run the seed script:
-
-```bash
-psql -U your_username -d airbnb_db -f seed.sql

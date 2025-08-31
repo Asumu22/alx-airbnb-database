@@ -72,3 +72,7 @@ Based on the Airbnb specification, the following core entities and their key att
 - **Draw.io (recommended)** or any ER diagramming tool can be used to visually represent the above entities and relationships.  
  
 
+## ERD Diagram
+
+![Airbnb ERD](alx-airbnb-erd.png)
+

@@ -80,4 +80,4 @@ The schema includes tables for:
 
 ## Database Schema SQL
 
-The full SQL script to create the schema is available here: [schema.sql](database-script-0x01/schema.sql)
+The full SQL script to create the schema is available here: [schema.sql](schema.sql)

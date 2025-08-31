@@ -70,10 +70,5 @@ Based on the Airbnb specification, the following core entities and their key att
 
 ## Tools
 - **Draw.io (recommended)** or any ER diagramming tool can be used to visually represent the above entities and relationships.  
-
----
-
-## Deliverable
-- An ERD diagram (saved as an image or PDF in this directory).  
-- This `requirements.md` file describing entities, attributes, and relationships.  
+ 
 

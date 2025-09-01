@@ -23,4 +23,4 @@ Normalization is the process of organizing data to reduce redundancy, improve in
 ## Result
 - All tables (`User`, `Property`, `Booking`, `Payment`, `Review`, `Message`) are in 3NF.
 - No redundancy and no transitive dependencies remain.
-- Ensures efficient data storage, integrity, and easier maintenance.
+- Ensures efficient data storage, integrity, and easier maintenance..

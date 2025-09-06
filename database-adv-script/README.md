@@ -31,3 +31,23 @@ This task demonstrates the use of **aggregation functions** and **window functio
 
 ### 1. Aggregation
 Find the **total number of bookings** made by each user.
+
+# Task 3 - Implement Indexes for Optimization
+
+This task demonstrates how to create indexes in the Airbnb database to optimize query performance.
+
+### Objectives
+- Identify high-usage columns in key tables.
+- Create appropriate indexes to improve query execution.
+- Measure performance improvements.
+
+### Queries Implemented
+- Index on `users(email)` to speed up lookups by email.
+- Index on `bookings(user_id)` and `bookings(start_date)` for faster booking queries.
+- Index on `properties(location)` and `properties(host_id)` to optimize property searches and host queries.
+
+### Optional
+Use `EXPLAIN` or `ANALYZE` on queries before and after adding indexes to verify performance improvement.
+
+### Files
+- [`database_index.sql`](./database_index.sql)

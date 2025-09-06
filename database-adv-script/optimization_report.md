@@ -1,29 +1,25 @@
 # Task 4 - Optimize Complex Queries
 
 ## Objective
-Refactor complex SQL queries to improve performance, reduce execution time, and leverage indexes effectively.
+The goal of this task is to optimize a complex query that retrieves bookings along with user, property, and payment details. The query is analyzed for performance issues and refactored to improve execution times.
 
 ## Initial Query
-- Joined `bookings`, `users`, `properties`, and `payments`.
-- Retrieved all columns.
-- Checked execution plan using `EXPLAIN ANALYZE`.
+The initial query retrieves all bookings with associated user, property, and payment details, using an `AND` condition to filter by date range:
 
-## Identified Bottlenecks
-- Retrieving all columns increased I/O.
-- No filter resulted in full table scans on large tables.
-- LEFT JOIN on `payments` table caused slower execution when many bookings exist.
-
-## Optimization Steps
-1. Selected only necessary columns.
-2. Applied a date filter on `start_date` to reduce scanned rows.
-3. Leveraged indexes on `bookings(user_id)`, `bookings(start_date)`, `users(id)`, `properties(id)`.
-
-## Results
-- Query execution time reduced significantly.
-- EXPLAIN ANALYZE shows fewer rows scanned and faster retrieval.
-- Optimized query can be used in production for reports and dashboards.
-
-## Recommendations
-- Continuously monitor query performance.
-- Add more filters where appropriate.
-- Use indexed columns in WHERE and JOIN conditions.
+```sql
+SELECT 
+    b.id AS booking_id,
+    b.start_date,
+    b.end_date,
+    u.id AS user_id,
+    u.name AS user_name,
+    p.id AS property_id,
+    p.title AS property_title,
+    pay.id AS payment_id,
+    pay.amount AS payment_amount
+FROM bookings b
+JOIN users u ON b.user_id = u.id
+JOIN properties p ON b.property_id = p.id
+LEFT JOIN payments pay ON b.id = pay.booking_id
+WHERE b.start_date >= '2025-01-01'
+AND b.end_date <= '2025-12-31';

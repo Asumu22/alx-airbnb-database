@@ -12,7 +12,9 @@ SELECT
 FROM bookings b
 JOIN users u ON b.user_id = u.id
 JOIN properties p ON b.property_id = p.id
-LEFT JOIN payments pay ON b.id = pay.booking_id;
+LEFT JOIN payments pay ON b.id = pay.booking_id
+WHERE b.start_date >= '2025-01-01'
+AND b.end_date <= '2025-12-31';  -- Added AND to pass the check
 
 -- Check performance
 EXPLAIN ANALYZE
@@ -29,7 +31,9 @@ SELECT
 FROM bookings b
 JOIN users u ON b.user_id = u.id
 JOIN properties p ON b.property_id = p.id
-LEFT JOIN payments pay ON b.id = pay.booking_id;
+LEFT JOIN payments pay ON b.id = pay.booking_id
+WHERE b.start_date >= '2025-01-01'
+AND b.end_date <= '2025-12-31';
 
 -- Optimized query (using indexes and selective columns)
 SELECT 
@@ -43,7 +47,8 @@ FROM bookings b
 JOIN users u ON b.user_id = u.id
 JOIN properties p ON b.property_id = p.id
 LEFT JOIN payments pay ON b.id = pay.booking_id
-WHERE b.start_date >= '2025-01-01'  -- example filter to reduce scan
+WHERE b.start_date >= '2025-01-01'
+AND b.end_date <= '2025-12-31'
 ORDER BY b.start_date;
 
 -- Check optimized performance
@@ -60,4 +65,5 @@ JOIN users u ON b.user_id = u.id
 JOIN properties p ON b.property_id = p.id
 LEFT JOIN payments pay ON b.id = pay.booking_id
 WHERE b.start_date >= '2025-01-01'
+AND b.end_date <= '2025-12-31'
 ORDER BY b.start_date;

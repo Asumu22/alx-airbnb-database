@@ -46,7 +46,7 @@ This task demonstrates how to create indexes in the Airbnb database to optimize 
 - Index on `bookings(user_id)` and `bookings(start_date)` for faster booking queries.
 - Index on `properties(location)` and `properties(host_id)` to optimize property searches and host queries.
 
-### Optional
+
 Use `EXPLAIN` or `ANALYZE` on queries before and after adding indexes to verify performance improvement.
 
 ### Files
